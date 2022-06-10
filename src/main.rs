@@ -1,11 +1,8 @@
-use warp_diesel_jwt_api::users;
+use warp_diesel_jwt_api::routes;
 
-fn main() {
-  let users = users::get_all();
+#[tokio::main]
+async fn main() {
+  let users_routes = routes::users_routes();
 
-  if users.is_err() {
-    panic!("Impossible to get users");
-  }
-
-  println!("{:?}", users);
+  warp::serve(users_routes).run(([127, 0, 0, 1], 3500)).await;
 }
