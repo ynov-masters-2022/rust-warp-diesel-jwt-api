@@ -7,8 +7,11 @@ edition = "2021"
 
 [dependencies]
 bcrypt = "0.13"
+chrono = "0.4.19"
 diesel = { version = "1.4.8", features = ["postgres"] }
 dotenv = "0.15.0"
+jsonwebtoken = "8.1.0"
+serde = { version = "1.0.137", features = ["derive"] }
+thiserror = "1.0.31"
 tokio = { version = "1", features = ["full"] }
 warp = "0.3"
-serde = { version = "1.0.137", features = ["derive"] }
