@@ -1,3 +1,5 @@
+use bcrypt::{hash, DEFAULT_COST};
+
 use crate::db::establish_connection;
 use crate::diesel::prelude::*;
 use crate::models::{NewUser, User};
@@ -14,10 +16,12 @@ pub fn get_all() -> Result<Vec<User>, String> {
   }
 }
 
-pub fn create(new_user: NewUser) -> User {
+pub fn create(mut new_user: NewUser) -> User {
   use schema::users;
 
   let connection = establish_connection();
+
+  new_user.password = hash(new_user.password, DEFAULT_COST).unwrap();
 
   diesel::insert_into(users::table)
     .values(new_user)
