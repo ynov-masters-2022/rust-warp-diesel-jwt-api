@@ -1,6 +1,6 @@
 use crate::db::establish_connection;
 use crate::diesel::prelude::*;
-use crate::models::User;
+use crate::models::{NewUser, User};
 use crate::schema;
 
 pub fn get_all() -> Result<Vec<User>, String> {
@@ -14,7 +14,7 @@ pub fn get_all() -> Result<Vec<User>, String> {
   }
 }
 
-pub fn create(new_user: User) -> User {
+pub fn create(new_user: NewUser) -> User {
   use schema::users;
 
   let connection = establish_connection();
