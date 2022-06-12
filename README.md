@@ -1,5 +1,14 @@
 # Warp/Diesel/JWT Rust API
 
+## Crates
+
+- bcrypt
+- diesel
+- jsonwebtoken
+- serde
+- warp
+- and others...
+
 ## Database configuration
 
 As pointed in the [official documentation](https://diesel.rs/guides/getting-started), first install the Diesel CLI :
